@@ -19,6 +19,11 @@ jobs:
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
       - run: mkdir staging && cp target/*.jar staging
+      - name: List files in the repository
+        run: |
+          pwd
+          ls -l
+          ls -l staging
       - uses: actions/upload-artifact@v2
         with:
          name: Package
