@@ -26,5 +26,5 @@ jobs:
           ls -l staging
       - uses: actions/upload-artifact@v2
         with:
-         name: Package
+         name: my-app-1.0-SNAPSHOT.jar
          path: staging
