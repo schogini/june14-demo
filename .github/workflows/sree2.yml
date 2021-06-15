@@ -18,7 +18,8 @@ jobs:
         run: |
           pwd
           ls -l
-          echo AAAA > file1.txt
+          mkdir staging
+          echo AAAA > staging/file1.txt
       - uses: actions/upload-artifact@v2
         with:
          name: file.txt
