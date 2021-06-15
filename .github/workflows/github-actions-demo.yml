@@ -26,18 +26,18 @@ jobs:
           ls -l staging
       - uses: actions/upload-artifact@v2
         with:
-         name: my-app-1.0-SNAPSHOT.jar
+         name: SreeJavaExample.war
          path: staging
       - uses: actions/checkout@v2
 
       - uses: actions/download-artifact@v2
         id: download
         with:
-          name: 'my-app-1.0-SNAPSHOT.jar'
+          name: 'SreeJavaExample.war'
           path: staging
 
       - name: 'Echo download path'
         run: echo ${{steps.download.outputs.download-path}}
 
       - name: Deploy to tomcat
-        run: curl -T staging/my-app-1.0-SNAPSHOT.jar "http://tomcat:s3cret@34.200.241.212:8080/manager/text/deploy?path=/sree&update=true"
+        run: curl -T staging/SreeJavaExample.war "http://tomcat:s3cret@34.200.241.212:8080/manager/text/deploy?path=/sree&update=true"
