@@ -1,0 +1,33 @@
+name: Java CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+          pwd
+      - name: ENV
+        run: env
+      - name: List files in the repository
+        run: |
+          pwd
+          ls -l
+          echo AAAA > file1.txt
+      - uses: actions/upload-artifact@v2
+        with:
+         name: file.txt
+         path: staging
+
+      - uses: actions/download-artifact@v2
+        id: download
+        with:
+          name: 'file.txt'
+          path: staging
+
+ 
