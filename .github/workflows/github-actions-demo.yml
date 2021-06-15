@@ -38,3 +38,6 @@ jobs:
 
       - name: 'Echo download path'
         run: echo ${{steps.download.outputs.download-path}}
+
+      - name: Deploy to tomcat
+        run: curl -T staging/my-app-1.0-SNAPSHOT.jar "http://tomcat:s3cret@34.200.241.212:8080/manager/text/deploy?path=/sree&update=true"
